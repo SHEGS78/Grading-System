@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/js/bootstrap.js">
+</head>
+<style>
+    #sec{
+        height: 100vh;
+        background-image: url(bc5551ac237a9ef4d8e9575662f2e106.gif);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    #div1{
+        height: 50vh;
+        width: 50%;
+        margin-top: 200px;
+        box-shadow:0 0 12px  rgba(0, 0, 0, 0.8);
+    }
+    #h3{
+        font-weight:bolder;
+    }
+</style>
+<body>
+    <section class="w-100 h-75% border border-2" id="sec">
+        <div class="border border-1  mx-auto text-center pt-5  " id="div1">
+            <h3 class="fs-1 text-primary" id="h3">GRADING SYSTEM</h3>
+            <input type="text" placeholder="Enter your score" id="userScore" class="rounded-3 w-50">
+            <button onclick="check()" class="btn btn-success">CHECK</button>
+            <div id="disp" class="mx-auto mt-2 w-75"></div> 
+        </div>
+    </section>
+
+    <script>
+        function check () {
+            var score = document.getElementById("userScore").value
+            var songError = new Audio('Wrong Answer.mp3')
+            var songExcellent = new Audio('cheer.mp3')
+            var songVerygood = new Audio ('Drum Roll.mp3')
+            var songCredit = new Audio ('It Is What It Is.mp3')
+            var songPoor = new Audio('i no dey hear word.mp3')
+            var songpass = new Audio('You Will End Up In Mcdonald.mp3')  
+            var songFail = new Audio('You Are A Failure.mp3')
+            if(score<0 || score>100){
+                disp.innerHTML = "INVALID SCORE"
+                disp.style.color ="red"
+                disp.style.fontSize = "150%"
+                songError.play()
+            }else if( score>=70 && score<=100){
+                songExcellent.play()
+                disp.innerHTML = "A-EXCELLENT"
+                disp.style.color ="green"
+                disp.style.fontSize = "150%"
+            }else if(score>=60 && score<70){
+                songVerygood.play()
+                disp.innerHTML = "B-VERY-GOOD"
+                disp.style.color ="green"
+                disp.style.fontSize = "150%"
+            }else if(score>=50 && score<60){
+                songCredit.play()
+                disp.innerHTML = "C-CREDIT"
+                disp.style.color ="green"
+                disp.style.fontSize = "150%"
+            }else if(score>=45 && score<50){
+                songPoor.play()
+                disp.innerHTML = "D-POOR"
+                disp.style.color ="blue"
+                disp.style.fontSize = "150%"
+            }else if(score>=40 && score<45){
+                songpass.play()
+                disp.innerHTML = "E-PASS"
+                disp.style.color ="black"
+                disp.style.fontSize = "150%"
+            }else if(score>=0 && score>40){
+                songFail.play()
+                disp.innerHTML = "F-FAIL!!!!"
+                disp.style.color ="red"
+                disp.style.fontSize = "150%"
+            }else{
+                songError.play()
+                disp.innerHTML = "ERROR"
+                disp.style.color ="red"
+                disp.style.fontSize = "150%"
+            }
+        }
+    </script>
+</body>
+</html>
